@@ -45,6 +45,7 @@ public class UserController {
                     @ApiResponse(responseCode = "401", description = "아이디 또는 비밀번호 오류")})
     @PostMapping("/login")
     public ResponseEntity<loginResponse> login(@RequestBody UserLoginRequest request){
+
         try{
             String token=userService.login(request.getUserId(), request.getPassword());
             String userName=userService.tokenToUser(token).getUserName();
