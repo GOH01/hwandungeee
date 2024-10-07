@@ -50,7 +50,7 @@ public class SecurityConfig  {
                          "/swagger-ui.html",  // Swagger UI HTML 경로
                          "/webjars/**"
                  ,"localhost:3000").permitAll() //인증 엔드포인트는 모두 접근 가능
-                 .anyRequest().authenticated()  //나머지는 인증 필요
+                 .anyRequest().permitAll()  //나머지는 인증 필요
             )
             .sessionManagement(session-> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)); //JWT 사용시 세션을 사용하지 않음
 
